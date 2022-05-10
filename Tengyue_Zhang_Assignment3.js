@@ -1,3 +1,4 @@
+//1.Given the following array and implement the table dynamically
 const tableInfo = {
   tableHeader: ["Student Name", "Age", "Phone", "Address"],
   tableContent: [
@@ -33,24 +34,30 @@ for (let i = 0; i < tableInfo.tableContent.length; i++) {
   tbody.appendChild(tr);
   for (let k in tableInfo.tableContent[i]) {
     let td = document.createElement("td");
-    td.innerHTML = tableInfo.tableContent[i][k];
+    td.textContent = tableInfo.tableContent[i][k];
     tr.appendChild(td);
   }
 }
 
-const list = ["HTML", "JavaScript", "CSS", "React", "Redux", "Java"];
-part2();
-function part2() {
-  let ul = "";
-  let ol = "";
-  list.forEach((ele) => {
-    ul += `<li>${ele}</li>`;
-    ol += `<li>${ele}</li>`;
-  });
-  document.querySelector("ul").innerHTML = ul;
-  document.querySelector("ol").innerHTML = ol;
+//2.Given the array and generate order list and unordered list dynamically as following:
+function createLanguageItem(name) {
+  let li = document.createElement("li");
+  li.textContent = name;
+  return li;
 }
 
+const olLanguage = document.querySelector("#olLanguage");
+const array = ["HTML", "JavaScript", "CSS", "React", "Redux", "Java"];
+array.forEach((ele) => {
+  olLanguage.appendChild(createLanguageItem(ele));
+});
+
+const ulLanguage = document.querySelector("#ulLanguage");
+array.forEach((ele) => {
+  ulLanguage.appendChild(createLanguageItem(ele));
+});
+
+//3. Given a array and implement a dropdown list with the following options dynamically (please find the screenshot/mockup below)
 const dropDownList = [
   { value: "newark", content: "Newark" },
   { value: "santaClara", content: "Santa Clara" },
